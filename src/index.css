@@ -1,0 +1,327 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+  color: #666;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container{
+  width: 1260px;
+  display: flex;
+}
+/*Left bar css*/
+.left_sidebar{
+  width:250px;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  border-right: 1px solid #eee;
+  overflow-y: auto; 
+  box-sizing: border-box;
+  background-color: #eee;
+}
+.body_content{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 18px;
+}
+.left_side_container{
+ margin: 0px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.logo h2 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+.item_container li{
+  list-style: none;
+  padding:10px 0 10px 10px ;
+  height: 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+ul.item_container{
+  padding-left: 10px !important;
+}
+
+.item_container li.active{
+ 
+  background-color: #fff;
+
+  
+}
+.icon_space{
+  margin-right: 10px;
+  color: #666;
+  font-size: 20px !important;
+}
+.msg_count{
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px 8px 2px 8px;
+  float: right;
+}
+.footer{
+  margin-top: 80px;
+  bottom: 0px;
+  position: relative;
+}
+.user_name{
+  height: 43px !important;
+}
+.pl-4{
+  padding-left: 30px;
+}
+/*Left bar css end*/
+.top_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically at the center */
+  margin-bottom: 16px;
+}
+.right-side {
+  display: flex;
+  gap: 10px; 
+}
+.display-flex{
+  display: flex;
+  gap:30px;
+}
+
+.item_grid_container{
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-items: center;
+  gap:30px;
+  padding: 15px;
+}
+.item{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 7px;
+  min-width: 200px;
+}
+
+.number-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 88px;
+}
+
+.increase {
+  
+  background-color: green;
+  color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+ 
+}
+.simpletext{
+  margin-bottom: 15px;
+}
+.numberSize{
+  font-size: 25px;
+  color: #000;
+  font-weight: bold;
+}
+ul.bottom_container{
+  padding: 0px !important;
+}
+.bottom_container{
+  padding-left: 0px !important;
+}
+.bottom_container li{
+  list-style: none;
+  display: inline;
+  padding: 5px;
+  gap: 10px;
+  border-radius: 8px;
+}
+.bottom_container li.active{
+  background: #fff;
+}
+.nav-tab{
+  background: #eee;
+  padding: 0px 10px 0px 10px;
+}
+
+.filter{
+  border-radius: 7px;
+  height: 18px;
+  border: 1px solid #eee;
+  padding: 9px;
+  background: #fff;
+}
+.search_box input{
+  border-radius: 5px;
+  border-color: #eee;
+  border: 0px !important;
+  height: 35px;
+}
+input[type="search"] {
+  padding-left: 30px; /* Space for the icon */
+  background-size: 18px 18px; /* Adjust size of the icon */
+  width: 100%; /* Ensure the input takes up full width */
+  height: 38px; /* Adjust the height as needed */
+  border: 1px solid #eee !important;
+  border-radius: 5px;
+}
+
+/* Style for the table header */
+/* Make the table cover the full width */
+table {
+  width: 100%; /* Table takes up the full width of its container */
+  border-collapse: collapse; /* Ensures borders between cells collapse into a single border */
+}
+
+/* Style for the table header */
+table th {
+  background-color: #eee; /* Gray background for table headers */
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style for the table data cells */
+table td {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Add bottom border to each row, except the header */
+table tr {
+  border-bottom: 1px solid #D3D3D3; /* Gray bottom border */
+}
+
+/* Remove the bottom border from the first row (header row) */
+table tr:first-child {
+  border-bottom: none;
+}
+
+/* Style the checkbox */
+input[type="checkbox"] {
+  margin: 0;
+}
+
+/* Set the "Name" column (the second column) to 30% width */
+table th:nth-child(2), 
+table td:nth-child(2) {
+  width: 30%;
+}
+.user_info{
+  display: flex;
+  gap: 10px;
+
+}
+.userImag i{
+  font-size: 32px;
+}
+.user_person{
+  font-size: 15px;
+  color: #000;
+  font-weight: bold;
+}
+.common_text_table{
+  font-size: 15px;
+  color: #000;
+ 
+}
+.ftc{
+  font-size: 12px;
+}
+.general{
+  background: lightblue;
+  padding: 5px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 15px;
+ 
+}
+td a{
+  text-decoration: none !important;
+}
+.admin{
+  background: lightpink;
+  padding: 5px;
+  border-radius: 6px;
+  width: 57px;
+  font-size: 15px;
+}
+.creator{
+  background: rgb(235, 189, 9);
+  padding: 5px;
+  border-radius: 6px;
+  width: 57px;
+  font-size: 15px;
+}
+.iconsize{
+  font-size: 40px !important;
+}
+.customer{
+  font-size: 22px;
+  color: #000;
+  font-weight: bold;
+}
+.paragarf p{
+  font-size: 15px;
+}
+.export{
+  border: 1px solid #ccc;
+  height: 32px;
+  padding: 0px 15px;
+  background: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.invite{
+  border: 1px solid #000;
+  height: 32px;
+  padding: 0px 15px;
+  background: #000;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #fff;
+}
+.colorf{
+  color: #fff;
+}
+.icon-margin{
+  margin-right: 10px;
+}
+.item_container li a{
+  text-decoration: none;
+  color: #333;
+}
+/*Right content css*/

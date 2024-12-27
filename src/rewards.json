@@ -1,0 +1,15 @@
+[
+    {
+      "customerName": "Alice Johnson",
+      "totalRewardPoints": 1100
+    },
+    {
+      "customerName": "Bob Smith",
+      "totalRewardPoints": 650
+    },
+    {
+      "customerName": "Charlie Brown",
+      "totalRewardPoints": 400
+    }
+  ]
+  
