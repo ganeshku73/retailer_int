@@ -30,5 +30,19 @@ Here is a screenshot of my app:
 ## Screenshots
 
 Here is a screenshot of my app:
-
+### Home Page
 ![alt text](image.png)
+
+### Total Reward Page
+![alt text](image-1.png)
+
+### All transactions
+![alt text](image-2.png)
+
+### Total Reward of customer
+
+![alt text](image-3.png)
+
+### Total Transaction of customer
+
+![alt text](image-4.png)
