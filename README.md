@@ -27,12 +27,14 @@ Launches the test runner in for reward point calculation.
 
 Here is a screenshot of my app:
 
-![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/Screenshot2025-01-01104918.png)
+## Screenshots
 
-![Screenshot of My Page](assets/Screenshot2025-01-01104918.png)
-![Screenshot of My Page](assets/totalreward_point.png)
-![Screenshot of My Page](assets/transaction.png)
-![Screenshot of My Page](assets/totalrewardbyCustomer.png)
-![Screenshot of My Page](assets/transactionByCutomerId.png)
+Here is a screenshot of my app:
+
+![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/Screenshot2025-01-01104918.png)
+![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/totalreward_point.png)
+![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/transaction.png)
+![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/totalrewardbyCustomer.png)
+![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/transactionByCustomerId.png)
 
 
