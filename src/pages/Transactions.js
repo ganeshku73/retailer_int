@@ -44,27 +44,32 @@ const Transaction = () => {
                     </div>
                 </div>
                 <table>
-                    <tr>
-                        <th>Transaction Id</th>
-                        <th>Customer Name</th>
-                        <th>Pucrachage date</th>
-                        <th>Product Pucrchage</th>
-                        <th>Price</th>
-                        <th>Reward Points</th>
-                    </tr>
-                    {customerData.length > 0 ?
-                        (customerData.map((item) => (<tr>
+                    <thead>
+                        <tr>
+                            <th>Transaction Id</th>
+                            <th>Customer Name</th>
+                            <th>Pucrachage date</th>
+                            <th>Product Pucrchage</th>
+                            <th>Price</th>
+                            <th>Reward Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {customerData.length > 0 ?
+                        (customerData.map((item,index) => (<tr key={index}>
                             <td>{item.transactionId}</td>
                             <td>{item.name}</td>
                             <td>{item.purchaseDate}</td>
                             <td>{item.productPurchased}</td>
                             <td>{item.price}</td>
-                            <td>{item.rewardPoints.toFixed(2)}</td>
+                            <td>{item.rewardPoints}</td>
                         </tr>))
                         ) :
                         (<><tr>
                             <td colSpan={6}>Data Not Found</td>
                         </tr></>)}
+                    </tbody>
+                    
 
                 </table>
             </div>

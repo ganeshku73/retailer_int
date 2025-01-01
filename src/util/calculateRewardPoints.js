@@ -22,19 +22,20 @@ const monthNames = {
  * @throws {TypeError} If price is not a number.
  */
 export const calculateRewardPoints = (price) => {
+  
   if (typeof price !== 'number') {
     throw new TypeError('Price must be numbers');
   }
   let rewardPoints = 0;
-
-  if (price >= 50 && price <= 100) {
-    rewardPoints = price - 50;
-  } else if (price > 100) {
+  let roundPrice = Math.floor(price);
+  if (roundPrice >= 50 && roundPrice <= 100) {
+    rewardPoints = roundPrice - 50;
+  } else if (roundPrice > 100) {
     const firstSegment = 50;
-    const secondSegment = price - 100;
+    const secondSegment = roundPrice - 100;
     rewardPoints = firstSegment + (secondSegment * 2);
   }
-  return rewardPoints;
+  return Math.floor(rewardPoints);
 };
 
 

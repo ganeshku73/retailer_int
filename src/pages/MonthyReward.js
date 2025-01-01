@@ -13,22 +13,33 @@ const MonthlyRewards = () => {
   if (error) {
     return <p>Error: {error}</p>;
   }
-  if (process.env.NODE_ENV === 'development') {
-    CustomLogger.print(data)
-  }
+    // if (process.env.NODE_ENV === 'development') {
+    //   CustomLogger.print(data)
+    // }
+
+  function filterLastThreeMonthsData(data) {
+    const today = new Date();
+    const threeMonthsAgo = new Date(today);
+    threeMonthsAgo.setMonth(today.getMonth() - 3); // Go back three months
   
-  const groupedByCustomer = data?.reduce((acc, transaction) => {
-    const { customerId, month, year, rewardPoints, name } = transaction;
+    return data.filter(item => {
+      const purchaseDate = new Date(item.purchaseDate);
+      return purchaseDate >= threeMonthsAgo && purchaseDate <= today;
+    });
+  }
+  const filterData = filterLastThreeMonthsData(data);
+  const groupedByCustomer = filterData?.reduce((acc, transaction) => {
+    const { customerId, purchaseDate, rewardPoints, name } = transaction;
     const customerKey = customerId;
     if (!acc[customerKey]) {
       acc[customerKey] = [];
     }
 
 
-    const monthYearKey = `${year}-${month}`;
+    const monthYearKey = `${purchaseDate}`;
 
 
-    let monthYearData = acc[customerKey].find(item => item.yearMonth === monthYearKey);
+    let monthYearData = acc[customerKey].find(item => item.purchaseDate === monthYearKey);
 
     if (!monthYearData) {
       // If the month-year doesn't exist, create a new entry
@@ -55,7 +66,7 @@ const MonthlyRewards = () => {
     customerId,
     rewardPointsByMonth: groupedByCustomer[customerId],
   }));
-  CustomLogger.debug(groupedRewardPoints)
+  //CustomLogger.print(groupedRewardPoints)
   
 
   
@@ -76,7 +87,7 @@ const MonthlyRewards = () => {
         </div>
         <table>
           <thead>
-            <tr>
+            <tr key={`head`}>
               <th>Customer Id</th>
               <th>Name</th>
               <th>Year-Month</th>
@@ -85,30 +96,35 @@ const MonthlyRewards = () => {
           </thead>
           <tbody>
             {groupedRewardPoints.length > 0 ? (
-              groupedRewardPoints.map((item) => {
-                return (
-                  <>
-                    {item.rewardPointsByMonth.map((val, ind) => (
-                      <tr key={`${item.customerId}-${val.yearMonth}`}>
-
-                        <td>{item.customerId}</td>
-                        <td><Link to={`/total-reward/${item.customerId}`} className="general" style={{ textDecoration: 'none' }}>{val.useInfo[0].name}</Link></td>
-                        <td>{val.yearMonth}</td>
-                        <td>{val.rewardPoints.toFixed(2)}</td>
-                      </tr>
-                    ))}
-                  </>
-                );
+              groupedRewardPoints.map((item, pind) => {
+                return item.rewardPointsByMonth.map((val, ind) => (
+                  <tr key={`${item.customerId}-${val.yearMonth}-${ind}-${pind}`}>
+                    <td>{item.customerId}</td>
+                    <td>
+                      <Link
+                        to={`/total-reward/${item.customerId}`}
+                        className="general"
+                        style={{ textDecoration: 'none' }}
+                      >
+                        {val.useInfo[0]?.name || 'No Name'}
+                      </Link>
+                    </td>
+                    <td>{val.yearMonth}</td>
+                    <td>{val.rewardPoints}</td>
+                  </tr>
+                ));
               })
             ) : (
-              <tr>
-                <td colSpan={4} style={{ textAlign: "center" }}>
+              <tr key={'no-data'}>
+                <td colSpan={4} style={{ textAlign: 'center' }}>
                   Data Not Found
                 </td>
               </tr>
             )}
           </tbody>
         </table>
+
+
 
       </div>
     </div>

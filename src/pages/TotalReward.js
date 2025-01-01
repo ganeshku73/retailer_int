@@ -9,9 +9,9 @@ const TotalRewards = () => {
 
   const { data, isLoading, error } = useContext(DataContext);
 
-  if (process.env.NODE_ENV === 'development') {
-    CustomLogger.print(data)
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   CustomLogger.print(data)
+  // }
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -21,25 +21,25 @@ const TotalRewards = () => {
     return <p>Error: {error}</p>;
   }
   let customerData;
-  if(customerId !== undefined){
+  if (customerId !== undefined) {
     customerData = data?.filter(transaction => transaction.customerId === parseInt(customerId));
-  }else{
-    customerData =  data;
+  } else {
+    customerData = data;
   }
-  
+
   const totalRewardPoints = customerData?.reduce((acc, transaction) => {
-     const {name} = transaction;
+    const { name } = transaction;
     if (!acc[transaction.customerId]) {
-      acc[transaction.customerId] = { rewardPoints: 0, name:name }; 
+      acc[transaction.customerId] = { rewardPoints: 0, name: name };
     }
     acc[transaction.customerId].rewardPoints += transaction.rewardPoints;
-  
+
     return acc; // Don't forget to return the accumulator
   }, {});
 
-  if (process.env.NODE_ENV === 'development') {
-    CustomLogger.print(totalRewardPoints)
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   CustomLogger.print(totalRewardPoints)
+  // }
   return (
     <div className="body_content">
       <div className="user_list_section">
@@ -52,45 +52,46 @@ const TotalRewards = () => {
             <div className="right-side">
 
               <div className="">
-                {customerId !== undefined ?(
+                {customerId !== undefined ? (
                   <div className="menuBoxIcon">
-                  <Link to={`/`} className='creator'>Back</Link>
-                </div>
-                ):(
-                <></>
+                    <Link to={`/`} className='creator'>Back</Link>
+                  </div>
+                ) : (
+                  <></>
                 )}
-                
+
               </div>
             </div>
           </div>
         </div>
         <table>
-          <tr>
-            <th>Customer Name</th>
-            <th>Reward Points</th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Customer Name</th>
+              <th>Reward Points</th>
+            </tr>
+          </thead>
+          <tbody>
           {Object.keys(totalRewardPoints).length > 0 ? (
             Object.keys(totalRewardPoints).map((customerId) => {
               const item = totalRewardPoints[customerId];
-              return (
-                <tr key={customerId}>
-                  <td>
-                    <Link to={`/transaction/${customerId}`}>
-                      <div className="general">{item.name}</div>
-                    </Link>
-                  </td>
-                  <td>
-                    <div>{item.rewardPoints.toFixed(2)}</div>
-                  </td>
-                </tr>
-              );
+              return (<tr key={customerId}>
+                <td>
+                  <Link to={`/transaction/${customerId}`}>
+                    <div className="general">{item.name}</div>
+                  </Link>
+                </td>
+                <td>
+                  <div>{item.rewardPoints}</div>
+                </td>
+              </tr>);
             })
           ) : (
             <tr>
               <td colSpan={2}>Data Not Found</td>
             </tr>
           )}
-
+        </tbody>
 
         </table>
       </div>

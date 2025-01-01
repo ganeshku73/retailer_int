@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { calculateRewardPoints, threeMonthFilteredData } from '../util/helper';
+import { calculateRewardPoints, threeMonthFilteredData } from '../util/calculateRewardPoints';
 export const useFetchData = (url) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +16,7 @@ export const useFetchData = (url) => {
         }
         const result = await response.json();
         const filteredData = threeMonthFilteredData(result);
-        const updatedData = filteredData.map((transaction) => {
+        const updatedData = result.map((transaction) => {
           const rewardPoints = calculateRewardPoints(transaction.price);
           return { ...transaction, rewardPoints };
         });
