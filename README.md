@@ -36,5 +36,6 @@ Here is a screenshot of my app:
 ![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/transaction.png)
 ![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/totalrewardbyCustomer.png)
 ![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/transactionByCustomerId.png)
+![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/Picture1.jpg)
 
 
