@@ -19,7 +19,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 
-### `npm test`
+## `npm test`
 
 Launches the test runner in for reward point calculation.
 
@@ -30,20 +30,20 @@ Here is a screenshot of my app:
 ## Screenshots
 
 Here is a screenshot of my app:
-### Home Page
+## Home Page
 ![alt text](image.png)
 
-### Total Reward Page
+## Total Reward Page
 ![alt text](image-1.png)
 
-### All transactions
+## All transactions
 ![alt text](image-2.png)
 
-### Total Reward of customer
+## Total Reward of customer
 
 ![alt text](image-3.png)
 
-### Total Transaction of customer
+## Total Transaction of customer
 
 ![alt text](image-4.png)
 
