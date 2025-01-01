@@ -4,16 +4,6 @@ const Sidebar = () => {
   return (
     <div className="left_sidebar">
       <div className="logo">
-        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-          <circle
-            cx="30"
-            cy="20"
-            r="10"
-            stroke="green"
-            strokeWidth="4"
-            fill="yellow"
-          />
-        </svg>
         <h2>Infosys</h2>
       </div>
       <div className="side_menu">

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import CustomLogger from '../CustomLogger';
 import { DataContext } from '../context/DataContext';
+import { filterLastThreeMonthsData } from '../util/calculateRewardPoints';
 const TotalRewards = () => {
 
   const { customerId } = useParams();
@@ -20,11 +21,13 @@ const TotalRewards = () => {
   if (error) {
     return <p>Error: {error}</p>;
   }
+
   let customerData;
+  const filterData = filterLastThreeMonthsData(data);
   if (customerId !== undefined) {
-    customerData = data?.filter(transaction => transaction.customerId === parseInt(customerId));
+    customerData = filterData?.filter(transaction => transaction.customerId === parseInt(customerId));
   } else {
-    customerData = data;
+    customerData = filterData;
   }
 
   const totalRewardPoints = customerData?.reduce((acc, transaction) => {

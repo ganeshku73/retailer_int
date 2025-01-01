@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../context/DataContext';
 import CustomLogger from '../CustomLogger';
+import { filterLastThreeMonthsData } from '../util/calculateRewardPoints';
 const MonthlyRewards = () => {
 
   const { data, isLoading, error } = useContext(DataContext);
@@ -17,16 +18,6 @@ const MonthlyRewards = () => {
     //   CustomLogger.print(data)
     // }
 
-  function filterLastThreeMonthsData(data) {
-    const today = new Date();
-    const threeMonthsAgo = new Date(today);
-    threeMonthsAgo.setMonth(today.getMonth() - 3); // Go back three months
-  
-    return data.filter(item => {
-      const purchaseDate = new Date(item.purchaseDate);
-      return purchaseDate >= threeMonthsAgo && purchaseDate <= today;
-    });
-  }
   const filterData = filterLastThreeMonthsData(data);
   const groupedByCustomer = filterData?.reduce((acc, transaction) => {
     const { customerId, purchaseDate, rewardPoints, name } = transaction;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { calculateRewardPoints, threeMonthFilteredData } from '../util/calculateRewardPoints';
+import { calculateRewardPoints } from '../util/calculateRewardPoints';
 export const useFetchData = (url) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,6 @@ export const useFetchData = (url) => {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        const filteredData = threeMonthFilteredData(result);
         const updatedData = result.map((transaction) => {
           const rewardPoints = calculateRewardPoints(transaction.price);
           return { ...transaction, rewardPoints };
