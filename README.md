@@ -25,26 +25,20 @@ Launches the test runner in for reward point calculation.
 
 ## `Screenshots`
 
-Here is a screenshot of my app:
-
-## Screenshots
-
-Here is a screenshot of my app:
 ## Home Page
-![alt text](image.png)
+![Home Page](image.png)
 
 ## Total Reward Page
-![alt text](image-1.png)
+![Total Reward Page](image-1.png)
 
-## All transactions
-![alt text](image-2.png)
+## All Transactions
+![All Transactions](image-2.png)
 
-## Total Reward of customer
+## Total Reward of Customer
+![Total Reward of Customer](image-3.png)
 
-![alt text](image-3.png)
+## Total Transaction of Customer
+![Total Transaction of Customer](image-4.png)
 
-## Total Transaction of customer
-
-![alt text](image-4.png)
-
-![alt text](https://github.com/ganeshku73/retailer_int/blob/main/image.png)
+## Using Raw URL
+![Home Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/image.png)
