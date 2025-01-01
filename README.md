@@ -31,11 +31,12 @@ Here is a screenshot of my app:
 
 Here is a screenshot of my app:
 
-![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/Screenshot2025-01-01104918.png)
-![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/totalreward_point.png)
-![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/transaction.png)
-![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/totalrewardbyCustomer.png)
-![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/transactionByCustomerId.png)
-![Screenshot of My Page](https://raw.githubusercontent.com/ganeshku73/retailer_int/main/assets/Picture1.jpg)
+![alt text](Screenshot2025-01-01104918.png)
 
+![alt text](totalreward_point.png)
 
+![alt text](totalrewardbyCustomer.png)
+
+![alt text](transaction.png)
+
+![alt text](transactionByCutomerId.png)
