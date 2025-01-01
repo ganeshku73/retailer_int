@@ -31,12 +31,4 @@ Here is a screenshot of my app:
 
 Here is a screenshot of my app:
 
-![alt text](Screenshot2025-01-01104918.png)
-
-![alt text](totalreward_point.png)
-
-![alt text](totalrewardbyCustomer.png)
-
-![alt text](transaction.png)
-
-![alt text](transactionByCutomerId.png)
+![alt text](image.png)
