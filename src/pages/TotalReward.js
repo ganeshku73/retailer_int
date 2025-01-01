@@ -80,7 +80,7 @@ const TotalRewards = () => {
                     </Link>
                   </td>
                   <td>
-                    <div>{item.rewardPoints}</div>
+                    <div>{item.rewardPoints.toFixed(2)}</div>
                   </td>
                 </tr>
               );

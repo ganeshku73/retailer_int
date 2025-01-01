@@ -59,7 +59,7 @@ const Transaction = () => {
                             <td>{item.purchaseDate}</td>
                             <td>{item.productPurchased}</td>
                             <td>{item.price}</td>
-                            <td>{item.rewardPoints}</td>
+                            <td>{item.rewardPoints.toFixed(2)}</td>
                         </tr>))
                         ) :
                         (<><tr>
