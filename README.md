@@ -46,3 +46,5 @@ Here is a screenshot of my app:
 ### Total Transaction of customer
 
 ![alt text](image-4.png)
+
+![alt text](https://github.com/ganeshku73/retailer_int/blob/main/image.png)
