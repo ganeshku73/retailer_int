@@ -15,6 +15,11 @@ npm install
 npm run start
 ```
 
+## To check test cases run 
+```bash
+npm run test
+```
+
 ## Screenshot Of project routing
 ## `Screenshots`
 
