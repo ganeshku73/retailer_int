@@ -27,10 +27,10 @@ Launches the test runner in for reward point calculation.
 
 Here is a screenshot of my app:
 
-![Screenshot of My Page](assets/Screenshot2025-01-01104918.png)
-![Screenshot of My Page](assets/totalreward_point.png)
-![Screenshot of My Page](assets/transaction.png)
-![Screenshot of My Page](assets/totalrewardbyCustomer.png)
-![Screenshot of My Page](assets/transactionByCutomerId.png)
+![Screenshot of My Page](public/assets/Screenshot2025-01-01104918.png)
+![Screenshot of My Page](public/assets/totalreward_point.png)
+![Screenshot of My Page](public/assets/transaction.png)
+![Screenshot of My Page](/publicassets/totalrewardbyCustomer.png)
+![Screenshot of My Page](public/assets/transactionByCutomerId.png)
 
 
