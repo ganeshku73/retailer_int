@@ -1,64 +1,100 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import data from '../data.json'; 
-import calculateRewardTotal from '../rewardUtilsTotal';
-const TotalRewards = () =>{
-  const [userData, setUserData] = useState([])
+import CustomLogger from '../CustomLogger';
+import { DataContext } from '../context/DataContext';
+const TotalRewards = () => {
+
   const { customerId } = useParams();
-  let reward1 = 1;
-  let reward2 = 2;
-  useEffect(()=>{
-        const sortedDataAsc = data.sort((a, b) => {
-            const dateA = new Date(a.purchaseDate);
-            const dateB = new Date(b.purchaseDate);
-            return dateA - dateB; // Ascending order (oldest first)
-        });
-        const customerData = sortedDataAsc.filter(item => item.customerId == customerId);
-        const result =  calculateRewardTotal(customerData,reward1,reward2);
-        setUserData(result);
-  },[reward1,reward2])
 
+  const { data, isLoading, error } = useContext(DataContext);
 
-  console.log(userData[customerId])
- 
-    return (<React.Fragment>
-        <div class="body_content">
-        <div class="top_item">
-          <div class="paragarf">
-            <div class="customer">Users Total Rewards</div>
+  if (process.env.NODE_ENV === 'development') {
+    CustomLogger.print(data)
+  }
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+  let customerData;
+  if(customerId !== undefined){
+    customerData = data?.filter(transaction => transaction.customerId === parseInt(customerId));
+  }else{
+    customerData =  data;
+  }
+  
+  const totalRewardPoints = customerData?.reduce((acc, transaction) => {
+     const {name} = transaction;
+    if (!acc[transaction.customerId]) {
+      acc[transaction.customerId] = { rewardPoints: 0, name:name }; 
+    }
+    acc[transaction.customerId].rewardPoints += transaction.rewardPoints;
+  
+    return acc; // Don't forget to return the accumulator
+  }, {});
+
+  if (process.env.NODE_ENV === 'development') {
+    CustomLogger.print(totalRewardPoints)
+  }
+  return (
+    <div className="body_content">
+      <div className="user_list_section">
+        <div className="user_list_section">
+
+          <div className="top_item">
+            <div>
+              <h3>User Total Rewards</h3>
+            </div>
+            <div className="right-side">
+
+              <div className="">
+                {customerId !== undefined ?(
+                  <div className="menuBoxIcon">
+                  <Link to={`/`} className='creator'>Back</Link>
+                </div>
+                ):(
+                <></>
+                )}
+                
+              </div>
+            </div>
           </div>
         </div>
-        <hr />
-
-        <div class="user_list_section">
-          <h3>User Total Rewards</h3>
-          <table>
+        <table>
+          <tr>
+            <th>Customer Name</th>
+            <th>Reward Points</th>
+          </tr>
+          {Object.keys(totalRewardPoints).length > 0 ? (
+            Object.keys(totalRewardPoints).map((customerId) => {
+              const item = totalRewardPoints[customerId];
+              return (
+                <tr key={customerId}>
+                  <td>
+                    <Link to={`/transaction/${customerId}`}>
+                      <div className="general">{item.name}</div>
+                    </Link>
+                  </td>
+                  <td>
+                    <div>{item.rewardPoints}</div>
+                  </td>
+                </tr>
+              );
+            })
+          ) : (
             <tr>
-              <th>Customer Name</th>
-              <th>Reward Points</th>
+              <td colSpan={2}>Data Not Found</td>
             </tr>
-           {userData[customerId]?(
-            
-             <tr>
-                
-                <td>
-                <Link to={`/transaction/${customerId}`}>
-                    <div class="general">{userData[customerId].name}</div>
-                </Link>
-                    
-                </td>
-                <td><div class="general">{userData[customerId].rewards}</div></td>
-             </tr>
-        ):(
-        <tr>
-            <td colSpan={2}>Data Not Found</td>
-        </tr>
-        )}
-            
+          )}
+
+
         </table>
-        </div>
       </div>
-    </React.Fragment>)
+    </div>
+  )
 }
 export default TotalRewards;

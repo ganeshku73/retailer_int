@@ -1,40 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import data from '../data.json'; 
-import calculateRewardPerTransaction from '../rewardUtilsTransaction';
-const Transaction = () =>{
-   
-    const [dataItems, setDataItems] = useState([]);
+
+import { DataContext } from '../context/DataContext';
+const Transaction = () => {
     const { customerId } = useParams();
+    const { data, isLoading, error } = useContext(DataContext);
+
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+    let customerData;
+    //alert(customerId)
+    if(customerId !== undefined){
+         customerData = data?.filter(transaction => transaction.customerId === parseInt(customerId));
+    }else{
+         customerData = data;
+    }
     
-    useEffect(()=>{
-        let reward1= 1;
-        let reward2 =2;
-        const customerData = data.filter(item => item.customerId == customerId);
-        const result =calculateRewardPerTransaction(customerData,reward1,reward2);
-        const sortedDataAsc = result.sort((a, b) => {
-            const dateA = new Date(a.purchaseDate);
-            const dateB = new Date(b.purchaseDate);
-            return dateA - dateB; // Ascending order (oldest first)
-        });
-        setDataItems(sortedDataAsc);
-    },[])
-
-    console.log(dataItems);
 
 
-    return (<React.Fragment>
-            <div class="body_content">
-                <div class="top_item">
-                <div class="paragarf">
-                    <div class="customer">Users Transactions</div>
+    return (
+        <div className="body_content">
+            <div className="user_list_section">
+               
+                <div className="top_item">
+                    <div>
+                        <h3>User Transactions</h3>
+                    </div>
+                    <div className="right-side">
+                        {customerId !== undefined?(
+                            <div className="">
+                                <div className="menuBoxIcon">
+                                    <Link to={`/total-reward/${customerId}`} className="creator">Back</Link>
+                                </div>
+                            </div>
+                        ):(<></>)}
+                        
+                    </div>
                 </div>
-                </div>
-                <hr />
-
-                <div class="user_list_section">
-                <h3>User Transactions</h3>
                 <table>
                     <tr>
                         <th>Transaction Id</th>
@@ -44,23 +52,23 @@ const Transaction = () =>{
                         <th>Price</th>
                         <th>Reward Points</th>
                     </tr>
-                    {dataItems.length>0 ?
-                    (dataItems.map((item)=>(<tr>
-                        <td>{item.transactionId}</td>
-                        <td>{item.name}</td>
-                        <td>{item.purchaseDate}</td>
-                        <td>{item.productPurchased}</td>
-                        <td>{item.price}</td>
-                        <td>{item.reward}</td>
-                    </tr>))
-                    ):
-                    (<><tr>
-                        <td colSpan={6}>Data Not Found</td>
-                    </tr></>)}
-                    
+                    {customerData.length > 0 ?
+                        (customerData.map((item) => (<tr>
+                            <td>{item.transactionId}</td>
+                            <td>{item.name}</td>
+                            <td>{item.purchaseDate}</td>
+                            <td>{item.productPurchased}</td>
+                            <td>{item.price}</td>
+                            <td>{item.rewardPoints}</td>
+                        </tr>))
+                        ) :
+                        (<><tr>
+                            <td colSpan={6}>Data Not Found</td>
+                        </tr></>)}
+
                 </table>
-                </div>
             </div>
-    </React.Fragment>)
+        </div>
+    )
 }
 export default Transaction;

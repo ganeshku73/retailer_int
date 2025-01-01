@@ -1,68 +1,117 @@
-import React, {useState, useEffect } from 'react';
-import data from '../data.json'; 
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import calculateRewardMonthly from '../rewardUtilsMonthly';
-const MonthlyRewards = () =>{
-    const [dataItems, setDataItems] = useState([]);
-    const reward1 = 1;
-    const reward2 = 2;
-    useEffect(()=>{
-        const sortedDataAsc = data.sort((a, b) => {
-        const dateA = new Date(a.purchaseDate);
-        const dateB = new Date(b.purchaseDate);
-        return dateA - dateB; // Ascending order (oldest first)
-        });
-        const result = calculateRewardMonthly(sortedDataAsc, reward1, reward2);
-        setDataItems(result);
-    },[reward1,reward2])
+import { DataContext } from '../context/DataContext';
+import CustomLogger from '../CustomLogger';
+const MonthlyRewards = () => {
 
-    console.log(dataItems);
+  const { data, isLoading, error } = useContext(DataContext);
+  
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+  if (process.env.NODE_ENV === 'development') {
+    CustomLogger.print(data)
+  }
+  
+  const groupedByCustomer = data?.reduce((acc, transaction) => {
+    const { customerId, month, year, rewardPoints, name } = transaction;
+    const customerKey = customerId;
+    if (!acc[customerKey]) {
+      acc[customerKey] = [];
+    }
 
 
-    return (<React.Fragment>
-        <div class="body_content">
-        <div class="top_item">
-          <div class="paragarf">
-            <div class="customer">Users Monthly Rewards</div>
+    const monthYearKey = `${year}-${month}`;
+
+
+    let monthYearData = acc[customerKey].find(item => item.yearMonth === monthYearKey);
+
+    if (!monthYearData) {
+      // If the month-year doesn't exist, create a new entry
+      monthYearData = {
+        yearMonth: monthYearKey,
+        rewardPoints: 0,
+        useInfo: []
+      };
+      acc[customerKey].push(monthYearData);
+    }
+
+    // Accumulate reward points for the month-year entry
+    monthYearData.rewardPoints += rewardPoints;
+
+    // Optionally, you can also store each transaction if needed for further details
+    monthYearData.useInfo.push({ name });
+
+    return acc;
+  }, {});
+
+
+
+  const groupedRewardPoints = Object.keys(groupedByCustomer).map(customerId => ({
+    customerId,
+    rewardPointsByMonth: groupedByCustomer[customerId],
+  }));
+  CustomLogger.debug(groupedRewardPoints)
+  
+
+  
+  return (
+    <div className="body_content">
+      <div className="user_list_section">
+
+        <div className="top_item">
+          <div>
+            <h3>User Monthly Rewards</h3>
+          </div>
+          <div className="right-side">
+
+            <div className="filter">
+
+            </div>
           </div>
         </div>
-        <hr />
-
-        <div class="user_list_section">
-          <h3>User Monthly Rewards</h3>
-          <table>
+        <table>
+          <thead>
             <tr>
               <th>Customer Id</th>
               <th>Name</th>
-              <th>Month</th>
-              <th>Year</th>
+              <th>Year-Month</th>
               <th>Reward Points</th>
             </tr>
-            {
-            dataItems.length>0?
-            (dataItems.map((item)=>{
+          </thead>
+          <tbody>
+            {groupedRewardPoints.length > 0 ? (
+              groupedRewardPoints.map((item) => {
                 return (
-                    <tr>
-                        <td><div class="common_text_table">{item.customerId}</div></td>
-                        <td>
-                            <Link to={`/total-reward/${item.customerId}`}>
-                                <div class="general">{item.name}</div>
-                            </Link>
-                        </td>
-                        <td><div class="common_text_table">{item.month}</div></td>
-                        <td><div class="common_text_table">{item.year}</div></td>
-                        <td><div class="common_text_table">{item.totalReward}</div></td>
-                    </tr>
-                )
-            })
-            ):(<tr>
-                <td colSpan={5}>Data Not Found</td>
-             </tr>)
-            
-            }
+                  <>
+                    {item.rewardPointsByMonth.map((val, ind) => (
+                      <tr key={`${item.customerId}-${val.yearMonth}`}>
+
+                        <td>{item.customerId}</td>
+                        <td><Link to={`/total-reward/${item.customerId}`} className="general" style={{ textDecoration: 'none' }}>{val.useInfo[0].name}</Link></td>
+                        <td>{val.yearMonth}</td>
+                        <td>{val.rewardPoints.toFixed(2)}</td>
+                      </tr>
+                    ))}
+                  </>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan={4} style={{ textAlign: "center" }}>
+                  Data Not Found
+                </td>
+              </tr>
+            )}
+          </tbody>
         </table>
-        </div>
+
       </div>
-    </React.Fragment>)
+    </div>
+  )
 }
 export default MonthlyRewards;

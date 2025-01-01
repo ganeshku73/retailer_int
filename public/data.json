@@ -1,0 +1,392 @@
+[
+  {
+    "customerId": 110,
+    "name": "Jack Scott",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1016,
+    "purchaseDate": "2024-12-05",
+    "productPurchased": "Monitor",
+    "price": 250.50
+  },
+  {
+    "customerId": 110,
+    "name": "Jack Scott",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1017,
+    "purchaseDate": "2024-12-10",
+    "productPurchased": "Smartwatch",
+    "price": 150
+  },
+  {
+    "customerId": 111,
+    "name": "Sarah Miller",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1018,
+    "purchaseDate": "2024-12-12",
+    "productPurchased": "Laptop",
+    "price": 950
+  },
+  {
+    "customerId": 111,
+    "name": "Sarah Miller",
+    "month": "November",
+    "year": 2024,
+    "transactionId": 1019,
+    "purchaseDate": "2024-11-25",
+    "productPurchased": "Camera",
+    "price": 400
+  },
+  {
+    "customerId": 112,
+    "name": "William Brown",
+    "month": "November",
+    "year": 2024,
+    "transactionId": 1020,
+    "purchaseDate": "2024-11-18",
+    "productPurchased": "Smartphone",
+    "price": 650
+  },
+  {
+    "customerId": 112,
+    "name": "William Brown",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1021,
+    "purchaseDate": "2024-12-03",
+    "productPurchased": "Headphones",
+    "price": 120
+  },
+  {
+    "customerId": 113,
+    "name": "Sophia Johnson",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1022,
+    "purchaseDate": "2024-12-07",
+    "productPurchased": "Tablet",
+    "price": 320
+  },
+  {
+    "customerId": 113,
+    "name": "Sophia Johnson",
+    "month": "November",
+    "year": 2024,
+    "transactionId": 1023,
+    "purchaseDate": "2024-11-28",
+    "productPurchased": "Smartwatch",
+    "price": 180
+  },
+  {
+    "customerId": 114,
+    "name": "Oliver Lee",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1024,
+    "purchaseDate": "2024-12-14",
+    "productPurchased": "Smartphone",
+    "price": 550
+  },
+  {
+    "customerId": 114,
+    "name": "Oliver Lee",
+    "month": "November",
+    "year": 2024,
+    "transactionId": 1025,
+    "purchaseDate": "2024-11-22",
+    "productPurchased": "Monitor",
+    "price": 270
+  },
+  {
+    "customerId": 115,
+    "name": "Lucas King",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1026,
+    "purchaseDate": "2024-12-09",
+    "productPurchased": "Laptop",
+    "price": 1200
+  },
+  {
+    "customerId": 115,
+    "name": "Lucas King",
+    "month": "November",
+    "year": 2024,
+    "transactionId": 1027,
+    "purchaseDate": "2024-11-17",
+    "productPurchased": "Tablet",
+    "price": 400
+  },
+  {
+    "customerId": 116,
+    "name": "Isabella Scott",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1028,
+    "purchaseDate": "2024-12-08",
+    "productPurchased": "Camera",
+    "price": 350
+  },
+  {
+    "customerId": 116,
+    "name": "Isabella Scott",
+    "month": "November",
+    "year": 2024,
+    "transactionId": 1029,
+    "purchaseDate": "2024-11-15",
+    "productPurchased": "Smartwatch",
+    "price": 200
+  },
+  {
+    "customerId": 117,
+    "name": "Ethan Harris",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1030,
+    "purchaseDate": "2024-12-02",
+    "productPurchased": "Laptop",
+    "price": 1050
+  },
+  {
+    "customerId": 117,
+    "name": "Ethan Harris",
+    "month": "November",
+    "year": 2024,
+    "transactionId": 1031,
+    "purchaseDate": "2024-11-30",
+    "productPurchased": "Smartphone",
+    "price": 700
+  },
+  {
+    "customerId": 118,
+    "name": "Ava Turner",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1032,
+    "purchaseDate": "2024-12-01",
+    "productPurchased": "Monitor",
+    "price": 230
+  },
+  {
+    "customerId": 118,
+    "name": "Ava Turner",
+    "month": "November",
+    "year": 2024,
+    "transactionId": 1033,
+    "purchaseDate": "2024-11-20",
+    "productPurchased": "Smartwatch",
+    "price": 220
+  },
+  {
+    "customerId": 119,
+    "name": "Mason Young",
+    "month": "December",
+    "year": 2024,
+    "transactionId": 1034,
+    "purchaseDate": "2024-12-06",
+    "productPurchased": "Laptop",
+    "price": 1100
+  },
+  {
+    "customerId": 110,
+    "name": "Jack Scott",
+    "month": "October",
+    "year": 2024,
+    "transactionId": 1012,
+    "purchaseDate": "2024-10-15",
+    "productPurchased": "Printer",
+    "price": 75.60
+  },
+  {
+    "customerId": 110,
+    "name": "Jack Scott",
+    "month": "January",
+    "year": 2023,
+    "transactionId": 2012,
+    "purchaseDate": "2023-01-22",
+    "productPurchased": "Laptop",
+    "price": 900
+  },
+  {
+    "customerId": 110,
+    "name": "Jack Scott",
+    "month": "October",
+    "year": 2022,
+    "transactionId": 3012,
+    "purchaseDate": "2022-10-11",
+    "productPurchased": "Smartphone",
+    "price": 450
+  },
+  {
+    "customerId": 101,
+    "name": "Alice Johnson",
+    "month": "March",
+    "year": 2024,
+    "transactionId": 1013,
+    "purchaseDate": "2024-03-20",
+    "productPurchased": "Tablet",
+    "price": 350
+  },
+  {
+    "customerId": 101,
+    "name": "Alice Johnson",
+    "month": "December",
+    "year": 2023,
+    "transactionId": 2013,
+    "purchaseDate": "2023-12-15",
+    "productPurchased": "Smartwatch",
+    "price": 180
+  },
+  {
+    "customerId": 101,
+    "name": "Alice Johnson",
+    "month": "February",
+    "year": 2022,
+    "transactionId": 3013,
+    "purchaseDate": "2022-02-22",
+    "productPurchased": "Smartphone",
+    "price": 420
+  },
+  {
+    "customerId": 103,
+    "name": "Charlie Brown",
+    "month": "March",
+    "year": 2024,
+    "transactionId": 1014,
+    "purchaseDate": "2024-03-25",
+    "productPurchased": "Smartphone",
+    "price": 500
+  },
+  {
+    "customerId": 103,
+    "name": "Charlie Brown",
+    "month": "November",
+    "year": 2023,
+    "transactionId": 2014,
+    "purchaseDate": "2023-11-05",
+    "productPurchased": "Tablet",
+    "price": 300
+  },
+  {
+    "customerId": 103,
+    "name": "Charlie Brown",
+    "month": "January",
+    "year": 2022,
+    "transactionId": 3014,
+    "purchaseDate": "2022-01-12",
+    "productPurchased": "Headphones",
+    "price": 80
+  },
+  {
+    "customerId": 104,
+    "name": "David White",
+    "month": "February",
+    "year": 2024,
+    "transactionId": 1005,
+    "purchaseDate": "2024-02-02",
+    "productPurchased": "Smartwatch",
+    "price": 150
+  },
+  {
+    "customerId": 104,
+    "name": "David White",
+    "month": "May",
+    "year": 2023,
+    "transactionId": 2005,
+    "purchaseDate": "2023-05-05",
+    "productPurchased": "Keyboard",
+    "price": 90
+  },
+  {
+    "customerId": 104,
+    "name": "David White",
+    "month": "July",
+    "year": 2022,
+    "transactionId": 3005,
+    "purchaseDate": "2022-07-18",
+    "productPurchased": "Smartphone",
+    "price": 500
+  },
+  {
+    "customerId": 105,
+    "name": "Eva Green",
+    "month": "February",
+    "year": 2024,
+    "transactionId": 1006,
+    "purchaseDate": "2024-02-05",
+    "productPurchased": "Headphones",
+    "price": 100
+  },
+  {
+    "customerId": 105,
+    "name": "Eva Green",
+    "month": "November",
+    "year": 2023,
+    "transactionId": 2006,
+    "purchaseDate": "2023-11-18",
+    "productPurchased": "Laptop",
+    "price": 850
+  },
+  {
+    "customerId": 105,
+    "name": "Eva Green",
+    "month": "March",
+    "year": 2022,
+    "transactionId": 3006,
+    "purchaseDate": "2022-03-02",
+    "productPurchased": "Smartwatch",
+    "price": 130
+  },
+  {
+    "customerId": 106,
+    "name": "Frank Black",
+    "month": "February",
+    "year": 2024,
+    "transactionId": 1007,
+    "purchaseDate": "2024-02-10",
+    "productPurchased": "Monitor",
+    "price": 250
+  },
+  {
+    "customerId": 106,
+    "name": "Frank Black",
+    "month": "July",
+    "year": 2023,
+    "transactionId": 2007,
+    "purchaseDate": "2023-07-25",
+    "productPurchased": "Keyboard",
+    "price": 80
+  },
+  {
+    "customerId": 106,
+    "name": "Frank Black",
+    "month": "May",
+    "year": 2022,
+    "transactionId": 3007,
+    "purchaseDate": "2022-05-15",
+    "productPurchased": "Tablet",
+    "price": 320
+  },
+  {
+    "customerId": 107,
+    "name": "Grace Lee",
+    "month": "March",
+    "year": 2024,
+    "transactionId": 1009,
+    "purchaseDate": "2024-03-01",
+    "productPurchased": "Keyboard",
+    "price": 80
+  },
+  {
+    "customerId": 107,
+    "name": "Grace Lee",
+    "month": "June",
+    "year": 2023,
+    "transactionId": 2009,
+    "purchaseDate": "2023-06-10",
+    "productPurchased": "Camera",
+    "price": 250
+  }
+]
